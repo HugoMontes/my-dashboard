@@ -1,11 +1,13 @@
+import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
+import { TitleComponent } from '@shared/title/title.component';
 
 // Crear un tipo de dato que permite unicamente 3 valores
 type Grade = 'A' | 'B' | 'F';
 
 @Component({
   standalone: true,
-  imports: [],
+  imports: [CommonModule, TitleComponent],
   templateUrl: './control-flow.component.html',
   styles: ``
 })
