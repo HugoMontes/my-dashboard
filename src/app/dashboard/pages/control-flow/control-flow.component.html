@@ -33,4 +33,44 @@
             }
         }
     </div>
+
+    <!-- ngFor @for -->
+    <div class="bg-white rounded shadow p-10">
+        <ul>
+            <!-- Mostrar array con datos -->
+            @for (framework of frameworks(); track $index) {
+                <li>{{framework}}</li>
+            }
+        </ul>
+    </div>
+    <div class="bg-white rounded shadow p-10">
+        <ul>
+            <!-- Mostrar array vacio -->
+            @for (database of databases(); track $index) {
+                <li>{{database}}</li>
+            } @empty {
+                <li>No hay bases de datos agregados</li>
+            }
+        </ul>
+    </div>
+    <div class="bg-white rounded shadow p-10">
+        <ul>
+            <!-- Mostrar otras variables de control que ofrece ngFor -->
+            <!-- Por ejemplo mostar el indice -->
+            <!-- Por ejemplo mostar cantidad de elementos -->
+            <!-- Pintar de rojo si el indice del elemento es par y no es ni el primero y el ultimo elemento -->
+            <!-- Pintar de amarrillo si el indice del elemento es impar y no es ni el primero y el ultimo elemento -->
+            <!-- Pintar de azul si el indice del elemento es el primero o es el ultimo -->
+            @for (framework of frameworks(); track frameworks; let i = $index, 
+                    first = $first, last = $last, even =$even, odd = $odd, count = $count) {
+                <li [class] = "{
+                    'bg-red-100': even && !first && !last,
+                    'bg-yellow-100': odd && !first && !last,
+                    'bg-blue-100': first || last,
+                }">
+                    {{ i }} - {{ i + 1 }} / {{ count }} - {{ framework }}
+                </li>
+            }
+        </ul>
+    </div>
 </section>

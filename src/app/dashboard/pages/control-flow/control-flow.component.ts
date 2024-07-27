@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 
 // Crear un tipo de dato que permite unicamente 3 valores
-type Grade = 'A'|'B'|'F';
+type Grade = 'A' | 'B' | 'F';
 
 @Component({
   standalone: true,
@@ -17,9 +17,14 @@ export default class ControlFlowComponent {
   // Crear una nueva señal de tipo Grade
   public grade = signal<Grade>('A');
 
+  // Crear una nueva señal con un array de strings
+  public frameworks = signal(['Angular', 'Vue', 'Svelte', 'Qwik', 'React']);
+
+  // Crear una nueva señal con un array vacio
+  public databases = signal([]);
+
   // Crear un metodo que cambia el valor de la señal
   public toggleContent() {
     this.showContent.update(value => !value);
   }
-
 }
