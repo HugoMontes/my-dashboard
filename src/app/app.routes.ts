@@ -28,12 +28,12 @@ export const routes: Routes = [
             {
                 path: 'user/:id',
                 title: 'User View',
-                loadComponent: () => import('./dashboard/pages/defer-user/defer-user.component'),
+                loadComponent: () => import('./dashboard/pages/user/user.component'),
             },
             {
                 path: 'user-list',
                 title: 'User List',
-                loadComponent: () => import('./dashboard/pages/defer-users/defer-users.component'),
+                loadComponent: () => import('./dashboard/pages/users/users.component'),
             },
             {
                 path: 'defer-views',
