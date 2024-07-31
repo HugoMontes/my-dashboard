@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { TitleComponent } from "../../../shared/title/title.component";
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
@@ -23,4 +23,12 @@ export default class UserComponent {
       switchMap(({ id }) => this.usersService.getUserById(id))
     )
   )
+
+  // Crear una señal computada
+  public titleLabel = computed(() => {
+    if (this.user()) {
+      return `Información del usuario: ${this.user()?.first_name} ${this.user()?.last_name}`
+    }
+    return 'Información del usuario';
+  });
 }
